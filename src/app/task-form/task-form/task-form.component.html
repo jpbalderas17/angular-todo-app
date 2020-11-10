@@ -1,0 +1,14 @@
+<form [formGroup]="taskForm" (ngSubmit)="onSubmit(taskForm.value, formDirective)" #formDirective="ngForm" >
+    <input type='hidden' formControlName="id">
+    <mat-form-field appearance="outline">
+        <mat-label>Title</mat-label>
+        <input formControlName="title" matInput placeholder="Enter Title">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Description</mat-label>
+        <textarea formControlName="description" matInput placeholder="Enter Description"></textarea>
+    </mat-form-field>
+
+    <button mat-flat-button type="submit" color="primary">{{taskForm.value.id != null ? 'Update' : 'Save'}}</button>
+</form>

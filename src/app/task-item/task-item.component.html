@@ -1,0 +1,24 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>{{task.title}}</mat-card-title>
+        <mat-card-subtitle>
+            <p>
+                Created: {{task.created_at}}
+            </p>
+            <p>
+                Completed: {{task.completed_at || 'Ongoing'}}
+            </p>
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+        <p>
+            {{task.description}}
+        </p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-flat-button [color]="task.completed_at == null ? 'basic' : 'primary'" (click)="toggleTaskStatus(task.id)"><mat-icon>done</mat-icon></button>
+        <button mat-stroked-button color="basic" (click)="editTask(task)"><mat-icon>edit</mat-icon></button>
+        <button mat-stroked-button color="warn" (click)="deleteTask(task.id)"><mat-icon>delete</mat-icon></button>
+    </mat-card-actions>
+</mat-card>
